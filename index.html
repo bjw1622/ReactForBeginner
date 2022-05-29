@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- React JS는 엔진, React-dom은 React element를 HTML에 두는 역할 -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    const $ = (element) => {
+      return document.querySelector(element);
+    };
+    const span = React.createElement(
+      "span",
+      { id: "sexy-span" },
+      "Hello, I'm a span"
+    );
+    // rendor의 의미는 React element를 가지고 HTML로 만들어 배치 한다는 의미, 사용자에게 보여준다.
+    ReactDOM.render(span, $("#root"));
+  </script>
+</html>
