@@ -19,30 +19,40 @@
     const $ = (element) => {
       return document.querySelector(element);
     };
+
     //JSX
-    const Title = (
-      <h3
-        id="title"
-        onMouseEnter={() => {
-          console.log("mouse enter");
-        }}
-      >
-        Hello I'm a title
-      </h3>
-    );
+    //Component의 첫 글자는 반드시 대문자
+    const Title = () => {
+      return (
+        <h3
+          id="title"
+          onMouseEnter={() => {
+            console.log("mouse enter");
+          }}
+        >
+          Hello I'm a title
+        </h3>
+      );
+    };
 
-    const Button = (
-      <button
-        style={{ backgroundColor: "tomato" }}
-        onClick={() => {
-          console.log("I'm clicked");
-        }}
-      >
-        Click me
-      </button>
+    const Button = () => {
+      return (
+        <button
+          style={{ backgroundColor: "tomato" }}
+          onClick={() => {
+            console.log("I'm clicked");
+          }}
+        >
+          Click me
+        </button>
+      );
+    };
+    const Container = () => (
+      <div>
+        <Title />
+        <Button />
+      </div>
     );
-
-    const container = React.createElement("div", null, [Title, Button]);
-    ReactDOM.render(container, $("#root"));
+    ReactDOM.render(<Container />, $("#root"));
   </script>
 </html>
