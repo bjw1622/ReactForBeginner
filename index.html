@@ -16,12 +16,33 @@
     const $ = (element) => {
       return document.querySelector(element);
     };
-    const span = React.createElement(
-      "span",
-      { id: "sexy-span" },
-      "Hello, I'm a span"
+    const h3 = React.createElement(
+      "h3",
+      {
+        //react 에서는 on + event 를 사용하면 이벤트가 등록됨을 안다.
+        onMouseEnter: () => {
+          console.log("mouse enter");
+        },
+      },
+      "Hello, I'm a h3"
     );
+    const btn = React.createElement(
+      "button",
+      {
+        style: {
+          backgroundColor: "red",
+        },
+        id: "btn",
+        onClick: () => {
+          console.log("I'm clicked");
+        },
+      },
+      "Click me"
+    );
+
+    //2개의 component를 가지는 compenet를 생성
+    const container = React.createElement("div", null, [h3, btn]);
     // rendor의 의미는 React element를 가지고 HTML로 만들어 배치 한다는 의미, 사용자에게 보여준다.
-    ReactDOM.render(span, $("#root"));
+    ReactDOM.render(container, $("#root"));
   </script>
 </html>
