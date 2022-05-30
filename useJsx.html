@@ -19,25 +19,16 @@
     const $ = (element) => {
       return document.querySelector(element);
     };
-    let counter = 0;
-    function render() {
-      ReactDOM.render(<Container />, $("#root"));
+    function App() {
+      const [counter, modifier] = React.useState(0);
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button>Click me</button>
+        </div>
+      );
     }
-    function countUp() {
-      counter += 1;
-      //함수가 실행될때 리렌더링
-      //이전에 렌더링된게 어떤건지 확인하고 다음에 렌더링될 컴포넌트는 어떤지를 보고 React는 다른 부분만 파악
-      render();
-    }
-    //JSX
-    //Component의 첫 글자는 반드시 대문자
-    const Container = () => (
-      <div>
-        <h3>Total clicks: {counter}</h3>
-        <button onClick={countUp}>Click me</button>
-      </div>
-    );
-    // 어플리케이션을 시작할때 Container를 1번 렌더링
-    render();
+    // 어플리케이션을 시작할때 App를 1번 렌더링
+    ReactDOM.render(<App />, $("#root"));
   </script>
 </html>
