@@ -20,11 +20,20 @@
       return document.querySelector(element);
     };
     function App() {
-      const [counter, modifier] = React.useState(0);
+      //counter는 초기값, setCounter는 함수
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        // 함수를 호출함으로써 rerendering
+        // 인자로 넣어준 값이 새로운 값
+        setCounter(counter + 1);
+        console.log(counter);
+      };
+      console.log(counter);
       return (
+        //사용자가 보게 될 컴포넌트
         <div>
           <h3>Total clicks: {counter}</h3>
-          <button>Click me</button>
+          <button onClick={onClick}>Click me</button>
         </div>
       );
     }
